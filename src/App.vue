@@ -46,7 +46,8 @@ body {
 }
 .result {
   font-size: 1rem;
-  height: min(50ch, 75vh);
+  height: calc(100vh - 36ch);
+  min-height: 34ch;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
