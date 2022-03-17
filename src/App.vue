@@ -53,7 +53,7 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
-  padding: 1ch;
+  padding: 1ch 0;
   gap: 1ch;
   
 }
@@ -61,7 +61,7 @@ output {
   font-size: 1rem;
   display: flex;
   align-items: center;
-  padding: 1ch;
+  padding:  1ch;
   gap: 1ch;
   border-radius: 5px;
   background: #222;
@@ -114,7 +114,7 @@ main {
   overflow: auto;
   display: flex;
   min-height: 100%;
-  padding: 15px;
+  padding: 5px;
   gap: 15px;
   flex-direction: column;
   align-items: center;
@@ -123,6 +123,8 @@ main {
     > div {
       font-size: 1rem;
       display: flex;
+      max-width: 100%;
+      flex-wrap: wrap;
       justify-content: center;
       min-height: 10ch;
       padding: 1ch;
