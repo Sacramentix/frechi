@@ -1,6 +1,6 @@
 {
     "name": "frechi",
-    "start_url": "/",
+    "start_url": "https://frechi.netlify.app/",
     "short_name": "frechi",
     "icons": [
         {
@@ -16,5 +16,6 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "fullscreen",
+    "prefer_related_applications": true
 }
