@@ -49,9 +49,8 @@ body {
   height: calc(100vh - 36ch);
   min-height: 34ch;
   display: flex;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-direction: column-reverse;
-
   padding: 1ch 0;
   gap: 1ch;
   
