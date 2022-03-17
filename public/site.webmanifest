@@ -1,5 +1,6 @@
 {
     "name": "frechi",
+    "start_url": "/",
     "short_name": "frechi",
     "icons": [
         {
