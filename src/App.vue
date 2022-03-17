@@ -3,20 +3,20 @@ import MathButton from './components/MathButton.vue';
 import WinOverlay from './components/winOverlay.vue';
 import { mathSymbols } from './store/equation/actions';
 import { deleteEquation, n, onNumberClick, onSymbolClick, submitResult } from './store/game/actions';
-import { calculteds, equations, hasWin, numbers, resultToFind, sortedCalculteds, sortedNumbers } from './store/game/state';
+import { calculteds, getEquations, hasWin, numbers, resultToFind, sortedCalculteds, sortedNumbers } from './store/game/state';
 </script>
 <template>
   <main>
     <h1>Frechi</h1>
     <h2>{{ resultToFind }}</h2>
     <div class="result">
-      <output v-for="equation, i in equations">
+      <output v-for="equation, i in getEquations">
         <p>{{ n(equation.entry1) }}</p>
         {{ n(equation.symbol) }}
         <p>{{ n(equation.entry2) }}</p>
         {{ equation.result != null ? "= " + equation.result : "" }}
-        <button class="accept" v-if="i == equations.length -1 && equation.result != null" @click="submitResult()">✔</button>
-        <button class="delete" v-if="i == equations.length -1 && ( equations.length > 1 || Object.keys(equation).length != 0)" @click="deleteEquation()">X</button>
+        <button class="accept" v-if="i == 0 && equation.result != null" @click="submitResult()">✔</button>
+        <button class="delete" v-if="i == 0 && ( getEquations.length > 1 || Object.keys(equation).length != 0)" @click="deleteEquation()">X</button>
       </output>
     </div>
     <section>
@@ -48,13 +48,13 @@ body {
   font-size: 1rem;
   height: calc(100vh - 36ch);
   min-height: 34ch;
-  overflow-y: auto;
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
+  overflow-y: scroll;
+  flex-direction: column-reverse;
+
   padding: 1ch 0;
   gap: 1ch;
+  
   
 }
 output {

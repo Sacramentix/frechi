@@ -16,3 +16,4 @@ export const numbers = ref(series);
 
 export const sortedNumbers = computed(()=>numbers.value.sort((a,b)=>a-b));
 export const sortedCalculteds = computed(()=>calculteds.value.sort((a,b)=>a-b));
+export const getEquations = computed(()=>equations.value.slice().reverse());
