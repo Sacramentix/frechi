@@ -15,7 +15,7 @@ import { calculteds, equations, hasWin, numbers, resultToFind, sortedCalculteds,
         {{ n(equation.symbol) }}
         <p>{{ n(equation.entry2) }}</p>
         {{ equation.result != null ? "= " + equation.result : "" }}
-        <button v-if="i == equations.length -1 && equation.result != null" @click="submitResult()">✔</button>
+        <button class="accept" v-if="i == equations.length -1 && equation.result != null" @click="submitResult()">✔</button>
         <button class="delete" v-if="i == equations.length -1 && ( equations.length > 1 || Object.keys(equation).length != 0)" @click="deleteEquation()">X</button>
       </output>
     </div>
@@ -46,17 +46,26 @@ body {
 }
 .result {
   font-size: 1rem;
-  min-height: 50ch;//8*5+7
+  height: min(50ch, 75vh);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 1ch;
+  gap: 1ch;
   
 }
 output {
   font-size: 1rem;
-  border: 0.2px solid red;
   display: flex;
   align-items: center;
-  min-height: 10ch;
   padding: 1ch;
   gap: 1ch;
+  border-radius: 5px;
+  background: #222;
+  min-height: 10ch;
+  min-width: 35ch;
   >p {
     font-size: 1rem;
     padding: 0;
@@ -71,24 +80,29 @@ output {
       display: none;
     }
   }
-  div {
-    display: flex;
-    gap: 5px;
-  }
   button {
     font-size: 2rem;
     border: none;
     border-radius: 15px;
     display: grid;
+    justify-self: flex-end;
     place-items: center;
     background: none;
-    color: #0c0;
+    &.accept {
+      color: #0c0;
+      margin-left: auto;
+      ~ .delete {
+        margin-left: unset;
+      }
+    }
     &:hover {
       cursor: pointer;
     }
     &.delete {
       color: #c00;
+      margin-left: auto;
     }
+    
   }
 }
 main {
@@ -106,9 +120,11 @@ main {
   justify-content: flex-start;
   > section {
     > div {
+      font-size: 1rem;
       display: flex;
       justify-content: center;
-      padding: 15px;
+      min-height: 10ch;
+      padding: 1ch;
       gap: 15px;
     }
   }
