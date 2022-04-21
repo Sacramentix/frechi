@@ -16,6 +16,7 @@
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vite-plugin-pwa": "^0.11.13",
-    "vue-tsc": "^0.29.8"
+    "vue-tsc": "^0.29.8",
+    "workbox-window": "^6.5.3"
   }
 }
