@@ -1,5 +1,5 @@
 import { getSeriesAndResult, MathSymbol, solve } from "../equation/actions";
-import { resultToFind, hasWin, equations, calculteds, numbers, result } from "./state";
+import { resultToFind, hasWin, equations, calculteds, numbers } from "./state";
 import type { Complete, Equation } from "./type";
 
 export function reset() {
@@ -73,6 +73,6 @@ export function n(n?:number | string) {
 
 export function solveEquation(e:Complete<Equation>) {
     const v = solve(e.entry1, e.symbol, e.entry2);
-    hasWin.value = v==result;
+    hasWin.value = v==resultToFind.value;
     return v;
 }

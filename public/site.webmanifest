@@ -1,6 +1,7 @@
 {
     "name": "frechi",
-    "start_url": "https://frechi.netlify.app/",
+    "start_url": "./",
+    "scope": ".",
     "short_name": "frechi",
     "icons": [
         {
@@ -12,6 +13,12 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/favicon.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "any maskable"
         }
     ],
     "theme_color": "#ffffff",
