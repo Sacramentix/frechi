@@ -48,6 +48,10 @@ import logoUrl from "./assets/logo.svg";
 body {
   font-family: "Mochiy Pop One", sans-serif;
   font-size: 25px;
+  background: repeat-y url('/japanBackground.png');
+  background-attachment: fixed;
+  background-size: 100% auto;
+  background-position: center;
 }
 .head {
   display: flex;
@@ -57,8 +61,10 @@ body {
   padding: 15px 0;
   gap: 15px;
   align-items: center;
+  color: #000;
+  font-weight: bolder;
   img {
-    filter: drop-shadow(0 0 5px);
+    filter: drop-shadow(0 0 5px #000);
   }
   button {
     border: none;
@@ -136,7 +142,9 @@ output {
   }
 }
 main {
-  background: #000;
+  background: url('/naruto.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
   color: #ccc;
   position: absolute;
   inset: 0;
