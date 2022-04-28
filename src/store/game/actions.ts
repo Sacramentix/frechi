@@ -1,14 +1,16 @@
-import { getSeriesAndResult, MathSymbol, solve } from "../equation/actions";
-import { resultToFind, hasWin, equations, calculteds, numbers } from "./state";
-import type { Complete, Equation } from "./type";
+import { getSeriesAndResult, solve } from "../equation/actions";
+import { resultToFind, hasWin, equations, calculteds, numbers, showSolution, solution } from "./state";
+import type { Complete, Equation, MathSymbol } from "./type";
 
 export function reset() {
-    const { series, result } = getSeriesAndResult(5);
+    const { series, result, equation } = getSeriesAndResult(5);
     resultToFind.value = result;
+    solution.value = equation;
     hasWin.value = false;
     equations.value = [{}];
     calculteds.value = [];
     numbers.value = series;
+    showSolution.value = false;
 }
 
 export function onNumberClick(n:number, a:number[]) {

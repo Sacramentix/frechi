@@ -3,12 +3,17 @@ import MathButton from './components/MathButton.vue';
 import WinOverlay from './components/winOverlay.vue';
 import { mathSymbols } from './store/equation/actions';
 import { deleteEquation, n, onNumberClick, onSymbolClick, submitResult } from './store/game/actions';
-import { calculteds, getEquations, hasWin, numbers, resultToFind, sortedCalculteds, sortedNumbers } from './store/game/state';
+import { calculteds, getEquations, hasWin, numbers, resultToFind, showSolution, sortedCalculteds, sortedNumbers, solution } from './store/game/state';
+import logoUrl from "./assets/logo.svg";
 </script>
 <template>
   <main>
-    <h1>Frechi</h1>
-    <h2>{{ resultToFind }}</h2>
+    <div class="head">
+      <img :src="logoUrl" role="heading" aria-level="1" title="frechi" />
+      <p v-if="showSolution">{{ solution }} =   </p>
+      <h2>{{ resultToFind }}</h2>
+      <button @click="showSolution=true">Afficher la solution</button>
+    </div>
     <div class="result">
       <output v-for="equation, i in getEquations">
         <p>{{ n(equation.entry1) }}</p>
@@ -43,6 +48,31 @@ import { calculteds, getEquations, hasWin, numbers, resultToFind, sortedCalculte
 body {
   font-family: "Mochiy Pop One", sans-serif;
   font-size: 25px;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 15px 0;
+  gap: 15px;
+  align-items: center;
+  img {
+    filter: drop-shadow(0 0 5px);
+  }
+  button {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    color: #000;
+    font-weight: bold;
+    &:hover {
+      transform: scale(1.025);
+    } 
+    &:active {
+        transform: scale(.975);
+    }
+  }
 }
 .result {
   font-size: 1rem;

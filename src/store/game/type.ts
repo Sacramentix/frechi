@@ -1,4 +1,9 @@
-import { MathSymbol } from "../equation/actions"
+export enum MathSymbol {
+    Plus = "+",
+    Minus = "-",
+    Multiply = "x",
+    Divide = "/"
+  }
 
 export type Complete<T> = {
     [K in keyof T]-?: T[K];
